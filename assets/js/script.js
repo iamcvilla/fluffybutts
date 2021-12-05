@@ -20,7 +20,7 @@ function getAccessToken() {
         accessToken = data.access_token;
         return accessToken;
     }).then(function (accessToken) {
-        fetch('https://api.petfinder.com/v2/animals', {
+        fetch('https://api.petfinder.com/v2/animals?type=Cat&limit=100', {
             headers: {
                 Authorization: 'Bearer ' + accessToken
             }
