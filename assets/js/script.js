@@ -1,3 +1,5 @@
+var myBtn = document.getElementById("myBtn");
+
 var accessToken = '';
 function getAccessToken() {
     var apiKey = "3Wnc44BRP16qJhv80lVv1yI8VZZLbe2B0udJQtJIw9UUBS3UI3";
@@ -25,32 +27,56 @@ function getAccessToken() {
         }).then(function (response) {
             return response.json()
         }).then(function (data) {
+            var petBox = document.querySelector(".pet-box")
             var animals = data.animals;
             console.log('animals', animals);
             for (var i = 0; i < animals.length; i++) {
-                console.log(animals[i].name + ': ' + animals[i].breeds.primary);
-
+                var petLi = document.createElement("li");
+                var viewButton = document.createElement("button")
+                viewButton.textContent = "view";
+                viewButton.setAttribute("value", animals[i].id)
+                viewButton.onclick = viewSelectedPet;
+                var saveButton = document.createElement("button")
+                saveButton.textContent = "save";
+                saveButton.setAttribute("value", animals[i].id)
+                saveButton.onclick = saveSelectedPet;
+                petLi.textContent = animals[i].name + ': ' + animals[i].breeds.primary;
+                petLi.appendChild(viewButton)
+                petLi.appendChild(saveButton)
+                petBox.appendChild(petLi)
             }
         }).catch(function (err) {
             console.log('err', err);
         })
     });
 };
+function viewSelectedPet(){
+    var petID = this.value
+    console.log(petID)
+}
+function saveSelectedPet(){
+    var petID = this.value
+    console.log(petID)
+}
 
 getAccessToken();
 
 function catFacts() {
+    var factsListEl = document.getElementById("cat-facts");
+    factsListEl.innerHTML = "";
     fetch("https://cat-fact.herokuapp.com/facts")
         .then(function (response) {
             return response.json();
         }).then(function (data) {
             console.log("data", data);
-            var factsListEl = document.getElementById("cat-facts");
-            for (var i = 0; i < data.length; i++) {
-                var factListItem = document.createElement("li");
-                factListItem.innerText = data[i].text;
-                factsListEl.appendChild(factListItem);
-            }
+            // for (var i = 0; i < data.length; i++) {
+            // }
+            var index = Math.floor(Math.random() * data.length)
+            var factListItem = document.createElement("p");
+            factListItem.innerText = data[index].text;
+            factsListEl.appendChild(factListItem);
+
         });
 }
-catFacts();
+
+myBtn.addEventListener("click", catFacts)
