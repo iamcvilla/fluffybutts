@@ -1,5 +1,6 @@
 var myBtn = document.getElementById("myBtn");
-
+var savedpets =
+      JSON.parse(window.localStorage.getItem("savedpets")) || [];
 var accessToken = '';
 function getAccessToken() {
     var apiKey = "3Wnc44BRP16qJhv80lVv1yI8VZZLbe2B0udJQtJIw9UUBS3UI3";
@@ -20,7 +21,7 @@ function getAccessToken() {
         accessToken = data.access_token;
         return accessToken;
     }).then(function (accessToken) {
-        fetch('https://api.petfinder.com/v2/animals?type=Cat&limit=100', {
+        fetch('https://api.petfinder.com/v2/animals?type=Cat&limit=12', {
             headers: {
                 Authorization: 'Bearer ' + accessToken
             }
@@ -39,10 +40,15 @@ function getAccessToken() {
                 var saveButton = document.createElement("button")
                 saveButton.textContent = "save";
                 saveButton.setAttribute("value", animals[i].id)
+                saveButton.setAttribute("petname",animals[i].name)
                 saveButton.onclick = saveSelectedPet;
                 petLi.textContent = animals[i].name + ': ' + animals[i].breeds.primary;
                 petLi.appendChild(viewButton)
                 petLi.appendChild(saveButton)
+               // let divEl = document.createElement("div");
+                //let pEl = document.createElement("p");
+                //pEl.textcontent =this.animals[i].description;
+                //divEl.append(pEl);
                 petBox.appendChild(petLi)
             }
         }).catch(function (err) {
@@ -53,9 +59,21 @@ function getAccessToken() {
 function viewSelectedPet(){
     var petID = this.value
     console.log(petID)
+    //creat new modal append the information 
 }
 function saveSelectedPet(){
     var petID = this.value
+    console.log (petID)
+    savedpets =
+      JSON.parse(window.localStorage.getItem("savedpets")) || [];
+    var newPet = {
+       // name: this.petname,
+        id: petID
+    }
+    //console.log(this.petname);
+    savedpets.push (newPet);
+    window.localStorage.setItem("savedpets", JSON.stringify(savedpets));
+    alert (this.value+ "is saved")
     console.log(petID)
 }
 
