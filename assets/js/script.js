@@ -77,7 +77,7 @@ function saveSelectedPet(){
     //console.log(this.petname);
     savedpets.push (newPet);
     window.localStorage.setItem("savedpets", JSON.stringify(savedpets));
-    alert (this.value+ "is saved")
+    $('#myModal_product').modal('show');
     console.log(petID)
 }
 

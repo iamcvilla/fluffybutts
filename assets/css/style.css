@@ -1,16 +1,62 @@
 #carousel-image {
-   height: 800px; 
+   height: 1000px; 
 }
 
-.carousel h5 p {
+.carousel-inner a{
+
+}
+
+.carousel-inner p {
     color:darkcyan;
 }
 
-#cat-facts {
+.carousel-indicators {
+    color:darkred;
+}
+
+.body-sections h3{
+
+}
+
+.pets-img {
+    display: flex;
+
+}
+
+.pet-box {
+    color: plum;
+    font-size: 20px;
+    font-style:
+    
+}
+
+.facts-img {
+
+}
+
+.random-cat-facts p {
     font-size: 20px;
     display: flex;
 }
 
-.pet-box {
-    font-size: 20px;
+.btn btn-success {
+    display: flex;
+    flex-wrap: flex;
+    align-items: center;
+}
+
+.resources-img {
+
+}
+
+.addtional-resources {
+
+}
+
+.additional-resources li {
+
+}
+
+footer{
+    
 }
