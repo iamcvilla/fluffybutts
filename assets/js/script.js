@@ -33,12 +33,16 @@ function getAccessToken() {
             console.log('animals', animals);
             for (var i = 0; i < animals.length; i++) {
                 var petLi = document.createElement("li");
-                var viewButton = document.createElement("button")
+                var viewButton = document.createElement("a")
                 viewButton.textContent = "view";
-                viewButton.setAttribute("value", animals[i].id)
-                viewButton.onclick = viewSelectedPet;
+                viewButton.classList.add ("btn", "btn-primary","btn-sm")
+                viewButton.target = "_blank"
+                viewButton.href = animals[i].url
+                //viewButton.setAttribute("value", animals[i].url)
+                //viewButton.onclick = viewSelectedPet;
                 var saveButton = document.createElement("button")
                 saveButton.textContent = "save";
+                saveButton.classList.add ("btn", "btn-primary","btn-sm")
                 saveButton.setAttribute("value", animals[i].id)
                 saveButton.setAttribute("petname",animals[i].name)
                 saveButton.onclick = saveSelectedPet;
