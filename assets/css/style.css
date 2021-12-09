@@ -1,7 +1,9 @@
 :root {
-    --primary-color: #ff00ff;
-    --secondary-color: #ff90ff;
+    --primary-color: #7b00ff;
+    --secondary-color: #007bff;
     --tertiary-color: #0099ff;
+    --quaternary-color: #ffffff;
+    --quinary-color: #000000;
 }
 
 #carousel-image {
@@ -11,28 +13,25 @@
 .carousel-inner a{
     color: var(--primary-color);
     font-family: "Brush Script MT", cursive;
-    font-size: 32px;
-    text-shadow: 2px 2px #f2ccff;
+    font-size: 50px;
+    text-shadow: 2px 2px var(--quaternary-color);
 }
 
 .carousel-inner p {
     color: var(--tertiary-color);
     font-family: "Brush Script MT", cursive;
     font-size: 26px;
-    text-shadow: 2px 2px #33ffff;
+    text-shadow: 2px 2px var(--primary-color);
 }
 
 .carousel-indicators li {
     color: var(--primary-color);
 }
 
-section {
-    background-color: #400080;
-}
 .body-sections h3 {
     font-size: 60px;
     color: var(--primary-color);
-    text-shadow: 2px 2px var(--secondary-color);
+    text-shadow: 2px 2px var(--quaternary-color);
 }
 
 .body-sections {
@@ -41,10 +40,14 @@ section {
     color: var(--secondary-color);
 }
 
+.one-two-background {
+    background-color: var(--quaternary-color);
+}
+
 .pets-img {
     float: right;
     height: 650px;
-    width: 9px;
+    width: 900px;
 }
 
 .btn-view {
@@ -59,6 +62,10 @@ section {
     margin: 10px 5px;
 }
 
+.random-cat-facts {
+    background-color: var(--quinary-color);
+}
+
 .facts-img {
     float: center;
     width: 50%;
@@ -70,11 +77,13 @@ section {
 }
 
 #myBtn {
+    border: 4px var(--quaternary-color);
     background-color: var(--primary-color);
     color: var(--secondary-color);
     position: relative;
     right:-20%;
 }
+
 .resources-img {
     display: flex;
     position: static;
@@ -87,5 +96,6 @@ section {
 }
 
 footer{
+    background-color: var(--quinary-color);
     color: var(--primary-color);
 }
