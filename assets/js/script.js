@@ -1,10 +1,10 @@
-var searchelement = document.getElementById ("search")
-var infoelement = document.getElementById ("info")
-
+var myBtn = document.getElementById("myBtn");
+var savedpets =
+    JSON.parse(window.localStorage.getItem("savedpets")) || [];
 var accessToken = '';
 function getAccessToken() {
-    var apiKey = "3Wnc44BRP16qJhv80lVv1yI8VZZLbe2B0udJQtJIw9UUBS3UI3";
-    var apiSecret = "NsSeJWrTc9EIPcPVtJORv2Mb0P5WYRBZDn89Pt7g";
+    var apiKey = "3U4ZufTHiHzEX2M4jAXOXBT5P3U8i8Dq8k3FlSipc8E0yJMVH0v";
+    var apiSecret = "G9VCNOweldIru2Mv2yFWv5dvUVH8RSy9q4FmMuyQ";
     fetch('https://api.petfinder.com/v2/oauth2/token', {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
@@ -21,55 +21,84 @@ function getAccessToken() {
         accessToken = data.access_token;
         return accessToken;
     }).then(function (accessToken) {
-        fetch('https://api.petfinder.com/v2/animals?type=Cat&limit=100', {
+        fetch('https://api.petfinder.com/v2/animals?type=Cat&limit=12', {
             headers: {
                 Authorization: 'Bearer ' + accessToken
             }
         }).then(function (response) {
             return response.json()
         }).then(function (data) {
+            var petBox = document.querySelector(".pet-box")
             var animals = data.animals;
             console.log('animals', animals);
             for (var i = 0; i < animals.length; i++) {
-                if (animals[i].photos.length > 0) {
-                    
-                    console.log(animals[i].name + ': ' + animals[i].breeds.primary + " - " + animals[i].description + " sex: " + animals[i].gender);
-                    // display data 
-                    var name= document.createElement ("h2")
-                    var breedEl = document.createElement ("p")
-                    var descriptionEl = document.createElement ("p")
-                    var genderEl = document.createElement ("p")
-                    var environmentEl = document.createElement ("p")
-                    name.textContent = `name: ${animals[i].name}`;
-                    breedEl.textContent = `breed: ${animals[i].breeds.primary}`
-                    descriptionEl.innerHTML = `description: ${animals[i].description}`
-                    genderEl.textContent = `gender ${animals[i].gender}`
-                    environmentEl.textContent = `environment: ${JSON.stringify(animals[i].environment)}`
-    
-                    infoelement.append(name,breedEl,descriptionEl,environmentEl, genderEl)
-                    
-                }
+                var petLi = document.createElement("li");
+                var viewButton = document.createElement("a")
+                viewButton.textContent = "view";
+                viewButton.classList.add("btn", "btn-primary", "btn-sm")
+                viewButton.target = "_blank"
+                viewButton.href = animals[i].url
+                //viewButton.setAttribute("value", animals[i].url)
+                //viewButton.onclick = viewSelectedPet;
+                var saveButton = document.createElement("button")
+                saveButton.textContent = "save";
+                saveButton.classList.add("btn", "btn-primary", "btn-sm")
+                saveButton.setAttribute("value", animals[i].id)
+                saveButton.setAttribute("petname", animals[i].name)
+                saveButton.onclick = saveSelectedPet;
+                petLi.textContent = animals[i].name + ': ' + animals[i].breeds.primary;
+                petLi.appendChild(viewButton)
+                petLi.appendChild(saveButton)
+                // let divEl = document.createElement("div");
+                //let pEl = document.createElement("p");
+                //pEl.textcontent =this.animals[i].description;
+                //divEl.append(pEl);
+                petBox.appendChild(petLi)
             }
         }).catch(function (err) {
             console.log('err', err);
         })
     });
 };
-searchelement.addEventListener ("click", getAccessToken)
-// getAccessToken();
+function viewSelectedPet() {
+    var petID = this.value
+    console.log(petID)
+    //creat new modal append the information 
+}
+function saveSelectedPet() {
+    var petID = this.value
+    console.log(petID)
+    savedpets =
+        JSON.parse(window.localStorage.getItem("savedpets")) || [];
+    var newPet = {
+        // name: this.petname,
+        id: petID
+    }
+    //console.log(this.petname);
+    savedpets.push(newPet);
+    window.localStorage.setItem("savedpets", JSON.stringify(savedpets));
+    alert(this.value + "is saved")
+    console.log(petID)
+}
+
+getAccessToken();
 
 function catFacts() {
+    var factsListEl = document.getElementById("cat-facts");
+    factsListEl.innerHTML = "";
     fetch("https://cat-fact.herokuapp.com/facts")
         .then(function (response) {
             return response.json();
         }).then(function (data) {
             console.log("data", data);
-            var factsListEl = document.getElementById("cat-facts");
-            for (var i = 0; i < data.length; i++) {
-                var factListItem = document.createElement("li");
-                factListItem.innerText = data[i].text;
-                factsListEl.appendChild(factListItem);
-            }
+            // for (var i = 0; i < data.length; i++) {
+            // }
+            var index = Math.floor(Math.random() * data.length)
+            var factListItem = document.createElement("p");
+            factListItem.innerText = data[index].text;
+            factsListEl.appendChild(factListItem);
+
         });
 }
-catFacts();
+
+myBtn.addEventListener("click", catFacts)

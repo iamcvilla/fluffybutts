@@ -1,7 +1,15 @@
 #carousel-image {
-   height: 800px; 
+   height: 600px; 
 }
 
 .carousel h5 p {
     color:darkcyan;
+}
+
+#cat-facts {
+    font-size: 20px;
+}
+
+.pet-box {
+    font-size: 20px;
 }
