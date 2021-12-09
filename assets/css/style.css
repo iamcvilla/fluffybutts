@@ -1,6 +1,7 @@
 :root {
     --primary-color: #ff00ff;
-    --secondary-color: #730099;
+    --secondary-color: #a06ccf;
+    --tertiary-color: #0099ff;
 }
 
 #carousel-image {
@@ -15,7 +16,7 @@
 }
 
 .carousel-inner p {
-    color: #0099ff;
+    color: var(--tertiary-color);
     font-family: "Brush Script MT", cursive;
     font-size: 26px;
     text-shadow: 2px 2px #33ffff;
@@ -26,7 +27,7 @@
 }
 
 section {
-    background-color: #e699ff;
+    background-color: #400080;
 }
 .body-sections h3 {
     font-size: 60px;
@@ -44,6 +45,18 @@ section {
     float: right;
     height: 575px;
     width: 835px;
+}
+
+.btn-view {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    margin: 10px 5px;
+}
+
+.btn-save{
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    margin: 10px 5px;
 }
 
 .facts-img {
