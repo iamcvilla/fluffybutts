@@ -45,6 +45,7 @@
 }
 
 .pets-img {
+    display: in-line;
     float: right;
     height: 650px;
     width: 900px;
@@ -91,7 +92,7 @@
     height: 650px;   
 }
 
-.addtional-resources ul {
+#additional-resources ul {
     color: var(--secondary-color);
 }
 
