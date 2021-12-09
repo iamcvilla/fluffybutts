@@ -35,7 +35,7 @@ function getAccessToken() {
                 var petLi = document.createElement("li");
                 var viewButton = document.createElement("a")
                 viewButton.textContent = "view";
-                viewButton.classList.add ("btn", "btn-primary","btn-sm")
+                viewButton.classList.add ("btn","btn-primary","btn-sm")
                 viewButton.target = "_blank"
                 viewButton.href = animals[i].url
                 //viewButton.setAttribute("value", animals[i].url)
