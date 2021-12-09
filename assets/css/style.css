@@ -1,62 +1,78 @@
+:root {
+    --primary-color: #ff00ff;
+    --secondary-color: #730099;
+}
+
 #carousel-image {
    height: 1000px; 
 }
 
 .carousel-inner a{
-
+    color: var(--primary-color);
+    font-family: "Brush Script MT", cursive;
+    font-size: 32px;
+    text-shadow: 2px 2px #f2ccff;
 }
 
 .carousel-inner p {
-    color:darkcyan;
+    color: #0099ff;
+    font-family: "Brush Script MT", cursive;
+    font-size: 26px;
+    text-shadow: 2px 2px #33ffff;
 }
 
-.carousel-indicators {
-    color:darkred;
+.carousel-indicators li {
+    color: var(--primary-color);
 }
 
-.body-sections h3{
+section {
+    background-color: #e699ff;
+}
+.body-sections h3 {
+    font-size: 60px;
+    color: var(--primary-color);
+    text-shadow: 2px 2px var(--secondary-color);
+}
 
+.body-sections {
+    font-style: "Georgia", serif;
+    font-size: 32px;
+    color: var(--secondary-color);
 }
 
 .pets-img {
-    display: flex;
-
-}
-
-.pet-box {
-    color: plum;
-    font-size: 20px;
-    font-style:
-    
+    float: right;
+    height: 575px;
+    width: 835px;
 }
 
 .facts-img {
-
+    float: center;
+    width: 50%;
+    z-index: 0;
 }
 
 .random-cat-facts p {
-    font-size: 20px;
-    display: flex;
+    position: relative;
 }
 
-.btn btn-success {
-    display: flex;
-    flex-wrap: flex;
-    align-items: center;
+#myBtn {
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    position: relative;
+    right:-20%;
 }
-
 .resources-img {
-
+    display: flex;
+    position: static;
+    width: 1400px;
+    height: 650px;   
 }
 
-.addtional-resources {
-
-}
-
-.additional-resources li {
-
+.addtional-resources ul {
+    color: var(--secondary-color);
 }
 
 footer{
-    
+    color: var(--primary-color);
 }
