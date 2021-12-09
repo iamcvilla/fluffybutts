@@ -1,7 +1,7 @@
 # fluffybutts
 
 ## Purpose
-A website that offers cat lovers access to..
+Fluffy Butts is a website where you can find a pet to adapt from Petfinder. Also look up random cat facts. This website has links to all your pets needs from local pet stores ton new pet owners guides. there are links for microchipping and pet insurance. Made with love from The fluffy Butts Team.
 ## Built With
 * HTML
 * CSS
@@ -19,3 +19,6 @@ https://iamcvilla.github.io/fluffybutts/
 <img width="1377" alt="Screen Shot 2021-12-08 at 9 31 08 PM" src="https://user-images.githubusercontent.com/89881060/145324720-96516cff-71d4-4b62-9a02-e1ea1b229d76.png">
  <img width="1404" alt="Screen Shot 2021-12-08 at 9 30 12 PM" src="https://user-images.githubusercontent.com/89881060/145324695-1e209603-9387-43c3-8d06-a1b9a1be09f2.png">
 <img width="1400" alt="Screen Shot 2021-12-08 at 9 30 48 PM" src="https://user-images.githubusercontent.com/89881060/145325252-65277395-8ff2-4ccf-a1ee-829bf511be54.png">
+
+## Contribution
+Made with :heart: by The Fluffy Butts Team!
