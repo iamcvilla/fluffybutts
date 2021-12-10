@@ -1,0 +1,44 @@
+Elevator Pitch:
+
+Fluffy Butts is an applicaition designed to help people who are interested in adopting a cats. Through Fluffy Butts users are able to search through cats that have been posted on Petfinder, read interesting facts about cats, and connect to resources that provide valuable information and services for pet owners.
+
+Concept/Reason for Development/User Story:
+
+
+
+
+Technologies used:
+
+-Html
+-Basic Css
+-Bootstrap
+-JavaScript
+-Jquery
+
+Breakdown of tasks:
+
+-Calvin: Featured pets view button, calling cat facts API, cat facts button, making site reactive
+-Christina: Html, Bootstrap for header, Css for featured pets, cat facts, and resource sections, customizing buttons, making site reactive
+-Marisa: Calling Petfinder API, featured pets save button and modal, readme 
+
+Challenges:
+
+-Timeframe for completing the project
+-Limitations/problems of Petfinder API
+
+Successes:
+
+-Getting the JavaScript functions to work properly.
+-Completing a presentable website.
+
+Directions for Future Development:
+
+-Calling the Petfinder API using a button in the featured pets section.
+-Pulling pets from the Petfinder API based on location.
+-Setting links in additional resources section to open in a new tab.
+-Reworking the css and bootstrap elements.
+
+Links:
+
+-Deployed Page: https://iamcvilla.github.io/fluffybutts/
+-GitHub Repo: https://github.com/iamcvilla/fluffybutts

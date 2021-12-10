@@ -1,10 +1,10 @@
 var myBtn = document.getElementById("myBtn");
 var savedpets =
-    JSON.parse(window.localStorage.getItem("savedpets")) || [];
+      JSON.parse(window.localStorage.getItem("savedpets")) || [];
 var accessToken = '';
 function getAccessToken() {
-    var apiKey = "3U4ZufTHiHzEX2M4jAXOXBT5P3U8i8Dq8k3FlSipc8E0yJMVH0v";
-    var apiSecret = "G9VCNOweldIru2Mv2yFWv5dvUVH8RSy9q4FmMuyQ";
+    var apiKey = "3Wnc44BRP16qJhv80lVv1yI8VZZLbe2B0udJQtJIw9UUBS3UI3";
+    var apiSecret = "NsSeJWrTc9EIPcPVtJORv2Mb0P5WYRBZDn89Pt7g";
     fetch('https://api.petfinder.com/v2/oauth2/token', {
         method: 'POST', headers: {
             'Content-Type': 'application/json'
@@ -35,6 +35,7 @@ function getAccessToken() {
                 var petLi = document.createElement("li");
                 var viewButton = document.createElement("a")
                 viewButton.textContent = "view";
+                viewButton.classList.add ("btn", "btn-primary","btn-lg")
                 viewButton.classList.add ("btn", "btn-info","btn-lg", "btn-view")
                 viewButton.target = "_blank"
                 viewButton.href = animals[i].url
@@ -42,14 +43,15 @@ function getAccessToken() {
                 //viewButton.onclick = viewSelectedPet;
                 var saveButton = document.createElement("button")
                 saveButton.textContent = "save";
+                saveButton.classList.add ("btn", "btn-primary","btn-lg")
                 saveButton.classList.add ("btn", "btn-info","btn-lg", "btn-save")
                 saveButton.setAttribute("value", animals[i].id)
-                saveButton.setAttribute("petname", animals[i].name)
+                saveButton.setAttribute("petname",animals[i].name)
                 saveButton.onclick = saveSelectedPet;
                 petLi.textContent = animals[i].name + ': ' + animals[i].breeds.primary;
                 petLi.appendChild(viewButton)
                 petLi.appendChild(saveButton)
-                // let divEl = document.createElement("div");
+               // let divEl = document.createElement("div");
                 //let pEl = document.createElement("p");
                 //pEl.textcontent =this.animals[i].description;
                 //divEl.append(pEl);
@@ -60,29 +62,27 @@ function getAccessToken() {
         })
     });
 };
-function viewSelectedPet() {
+function viewSelectedPet(){
     var petID = this.value
     console.log(petID)
     //creat new modal append the information 
 }
-function saveSelectedPet() {
+function saveSelectedPet(){
     var petID = this.value
-    console.log(petID)
+    console.log (petID)
     savedpets =
-        JSON.parse(window.localStorage.getItem("savedpets")) || [];
+      JSON.parse(window.localStorage.getItem("savedpets")) || [];
     var newPet = {
-        // name: this.petname,
+       // name: this.petname,
         id: petID
     }
     //console.log(this.petname);
-    savedpets.push(newPet);
+    savedpets.push (newPet);
     window.localStorage.setItem("savedpets", JSON.stringify(savedpets));
     $('#myModal_product').modal('show');
     console.log(petID)
 }
-
 getAccessToken();
-
 function catFacts() {
     var factsListEl = document.getElementById("cat-facts");
     factsListEl.innerHTML = "";
@@ -97,8 +97,6 @@ function catFacts() {
             var factListItem = document.createElement("p");
             factListItem.innerText = data[index].text;
             factsListEl.appendChild(factListItem);
-
         });
 }
-
 myBtn.addEventListener("click", catFacts)
