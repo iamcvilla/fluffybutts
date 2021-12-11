@@ -1,7 +1,13 @@
 var myBtn = document.getElementById("myBtn");
 var savedpets =
-      JSON.parse(window.localStorage.getItem("savedpets")) || [];
+    JSON.parse(window.localStorage.getItem("savedpets")) || [];
+var criteriaFormEl = document.getElementById("criteria-form");
+var catResultsContainerEl = document.getElementById("cat-results");
+var zipCode = "";
+var age = "";
+var sex = "";
 var accessToken = '';
+
 function getAccessToken() {
     var apiKey = "3Wnc44BRP16qJhv80lVv1yI8VZZLbe2B0udJQtJIw9UUBS3UI3";
     var apiSecret = "NsSeJWrTc9EIPcPVtJORv2Mb0P5WYRBZDn89Pt7g";
@@ -35,21 +41,21 @@ function getAccessToken() {
                 var petLi = document.createElement("li");
                 var viewButton = document.createElement("a")
                 viewButton.textContent = "view";
-                viewButton.classList.add ("btn", "btn-info","btn-lg", "btn-view")
+                viewButton.classList.add("btn", "btn-info", "btn-lg", "btn-view")
                 viewButton.target = "_blank"
                 viewButton.href = animals[i].url
                 //viewButton.setAttribute("value", animals[i].url)
                 //viewButton.onclick = viewSelectedPet;
                 var saveButton = document.createElement("button")
                 saveButton.textContent = "save";
-                saveButton.classList.add ("btn", "btn-info","btn-lg", "btn-save")
+                saveButton.classList.add("btn", "btn-info", "btn-lg", "btn-save")
                 saveButton.setAttribute("value", animals[i].id)
-                saveButton.setAttribute("petname",animals[i].name)
+                saveButton.setAttribute("petname", animals[i].name)
                 saveButton.onclick = saveSelectedPet;
                 petLi.textContent = animals[i].name + ': ' + animals[i].breeds.primary;
                 petLi.appendChild(viewButton)
                 petLi.appendChild(saveButton)
-               // let divEl = document.createElement("div");
+                // let divEl = document.createElement("div");
                 //let pEl = document.createElement("p");
                 //pEl.textcontent =this.animals[i].description;
                 //divEl.append(pEl);
@@ -60,22 +66,22 @@ function getAccessToken() {
         })
     });
 };
-function viewSelectedPet(){
+function viewSelectedPet() {
     var petID = this.value
     console.log(petID)
     //creat new modal append the information 
 }
-function saveSelectedPet(){
+function saveSelectedPet() {
     var petID = this.value
-    console.log (petID)
+    console.log(petID)
     savedpets =
-      JSON.parse(window.localStorage.getItem("savedpets")) || [];
+        JSON.parse(window.localStorage.getItem("savedpets")) || [];
     var newPet = {
-       // name: this.petname,
+        // name: this.petname,
         id: petID
     }
     //console.log(this.petname);
-    savedpets.push (newPet);
+    savedpets.push(newPet);
     window.localStorage.setItem("savedpets", JSON.stringify(savedpets));
     $('#myModal_product').modal('show');
     console.log(petID)
