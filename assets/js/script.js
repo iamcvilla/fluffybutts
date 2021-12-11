@@ -1,8 +1,8 @@
 
 var searchFormEl = document.getElementById("search-form");
-console.log("searchFormEl", searchFormEl)
+// console.log("searchFormEl", searchFormEl)
 var postCodeEl = document.getElementById("postcode");
-console.log("postCodeEl", postCodeEl)
+// console.log("postCodeEl", postCodeEl)
 var searchBtn = document.getElementById("search-pet-btn");
 var postcode = "";
 var myBtn = document.getElementById("myBtn");
