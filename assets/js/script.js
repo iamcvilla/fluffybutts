@@ -1,13 +1,14 @@
+
+var searchFormEl = document.getElementById("search-form");
+console.log("searchFormEl", searchFormEl)
+var postCodeEl = document.getElementById("postcode");
+console.log("postCodeEl", postCodeEl)
+var searchBtn = document.getElementById("search-pet-btn");
+var postcode = "";
 var myBtn = document.getElementById("myBtn");
 var savedpets =
-    JSON.parse(window.localStorage.getItem("savedpets")) || [];
-var criteriaFormEl = document.getElementById("criteria-form");
-var catResultsContainerEl = document.getElementById("cat-results");
-var zipCode = "";
-var age = "";
-var sex = "";
+      JSON.parse(window.localStorage.getItem("savedpets")) || [];
 var accessToken = '';
-
 function getAccessToken() {
     var apiKey = "3Wnc44BRP16qJhv80lVv1yI8VZZLbe2B0udJQtJIw9UUBS3UI3";
     var apiSecret = "NsSeJWrTc9EIPcPVtJORv2Mb0P5WYRBZDn89Pt7g";
@@ -35,30 +36,34 @@ function getAccessToken() {
             return response.json()
         }).then(function (data) {
             var petBox = document.querySelector(".pet-box")
+            console.log("data", data)
             var animals = data.animals;
-            console.log('animals', animals);
+        
             for (var i = 0; i < animals.length; i++) {
                 var petLi = document.createElement("li");
                 var viewButton = document.createElement("a")
                 viewButton.textContent = "view";
-                viewButton.classList.add("btn", "btn-info", "btn-lg", "btn-view")
+                viewButton.classList.add ("btn", "btn-primary","btn-lg")
+                viewButton.classList.add ("btn", "btn-info","btn-lg", "btn-view")
                 viewButton.target = "_blank"
                 viewButton.href = animals[i].url
-                //viewButton.setAttribute("value", animals[i].url)
-                //viewButton.onclick = viewSelectedPet;
+                viewButton.setAttribute("value", animals[i].url)
+                viewButton.onclick = viewSelectedPet;
                 var saveButton = document.createElement("button")
                 saveButton.textContent = "save";
-                saveButton.classList.add("btn", "btn-info", "btn-lg", "btn-save")
+                saveButton.classList.add ("btn", "btn-primary","btn-lg")
+                saveButton.classList.add ("btn", "btn-info","btn-lg", "btn-save")
                 saveButton.setAttribute("value", animals[i].id)
-                saveButton.setAttribute("petname", animals[i].name)
+                saveButton.setAttribute("petname",animals[i].name)
                 saveButton.onclick = saveSelectedPet;
                 petLi.textContent = animals[i].name + ': ' + animals[i].breeds.primary;
                 petLi.appendChild(viewButton)
                 petLi.appendChild(saveButton)
-                // let divEl = document.createElement("div");
-                //let pEl = document.createElement("p");
-                //pEl.textcontent =this.animals[i].description;
-                //divEl.append(pEl);
+                let divEl = document.createElement("div");
+                let pEl = document.createElement("p");
+                console.log("animals.description", animals[i].description)
+                pEl.textcontent = animals[i].description;
+                divEl.append(pEl);
                 petBox.appendChild(petLi)
             }
         }).catch(function (err) {
@@ -66,29 +71,41 @@ function getAccessToken() {
         })
     });
 };
-function viewSelectedPet() {
+function viewSelectedPet(){
     var petID = this.value
     console.log(petID)
     //creat new modal append the information 
 }
-function saveSelectedPet() {
+function saveSelectedPet(){
     var petID = this.value
-    console.log(petID)
+    console.log (petID)
     savedpets =
-        JSON.parse(window.localStorage.getItem("savedpets")) || [];
+      JSON.parse(window.localStorage.getItem("savedpets")) || [];
     var newPet = {
-        // name: this.petname,
+       name: this.petname,
         id: petID
     }
-    //console.log(this.petname);
-    savedpets.push(newPet);
+    console.log(this.petname);
+    savedpets.push (newPet);
     window.localStorage.setItem("savedpets", JSON.stringify(savedpets));
     $('#myModal_product').modal('show');
     console.log(petID)
 }
 
-getAccessToken();
+var catSearchHandler = function(event) {
+    event.preventDefault();
+    
+    // search and manipulate dom off search
+    var searchedPostcodeEl = document.getElementById("postcode");
+    var searchedPostcode = searchedPostcodeEl.value.trim();
+    postcode = searchedPostcode;
+    
+    console.log("event", event);
 
+    
+};
+     
+getAccessToken();
 function catFacts() {
     var factsListEl = document.getElementById("cat-facts");
     factsListEl.innerHTML = "";
@@ -97,14 +114,13 @@ function catFacts() {
             return response.json();
         }).then(function (data) {
             console.log("data", data);
-            // for (var i = 0; i < data.length; i++) {
-            // }
+            for (var i = 0; i < data.length; i++) {
+             }
             var index = Math.floor(Math.random() * data.length)
             var factListItem = document.createElement("p");
             factListItem.innerText = data[index].text;
             factsListEl.appendChild(factListItem);
-
         });
 }
-
+searchFormEl.addEventListener("submit", catSearchHandler);
 myBtn.addEventListener("click", catFacts)
