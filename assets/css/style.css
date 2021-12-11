@@ -85,8 +85,6 @@
 }
 
 .resources-img {
-    display: flex;
-    position: static;
     width: 1400px;
     height: 650px;   
 }
