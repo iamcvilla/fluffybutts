@@ -1,16 +1,100 @@
+:root {
+    --primary-color: #7b00ff;
+    --secondary-color: #007bff;
+    --tertiary-color: #0099ff;
+    --quaternary-color: #ffffff;
+    --quinary-color: #000000;
+}
+
 #carousel-image {
-   height: 800px; 
+   height: 1000px; 
 }
 
-.carousel h5 p {
-    color:darkcyan;
+.carousel-inner a{
+    color: var(--primary-color);
+    font-family: "Brush Script MT", cursive;
+    font-size: 50px;
+    text-shadow: 2px 2px var(--quaternary-color);
 }
 
-#cat-facts {
-    font-size: 20px;
-    display: flex;
+.carousel-inner p {
+    color: var(--tertiary-color);
+    font-family: "Brush Script MT", cursive;
+    font-size: 26px;
+    text-shadow: 2px 2px var(--primary-color);
 }
 
-.pet-box {
-    font-size: 20px;
+.carousel-indicators li {
+    color: var(--primary-color);
+}
+
+.body-sections h3 {
+    font-size: 60px;
+    color: var(--primary-color);
+    text-shadow: 2px 2px var(--quaternary-color);
+}
+
+.body-sections {
+    font-style: "Georgia", serif;
+    font-size: 32px;
+    color: var(--secondary-color);
+}
+
+.one-two-background {
+    background-color: var(--quaternary-color);
+}
+
+.pets-img {
+    float: right;
+    height: 650px;
+    width: 900px;
+}
+
+.btn-view {
+    background-color: var(--primary-color);
+    color: var(--tertiary-color);
+    margin: 10px 5px;
+}
+
+.btn-save{
+    background-color: var(--tertiary-color);
+    color: var(--primary-color);
+    margin: 10px 5px;
+}
+
+.random-cat-facts {
+    background-color: var(--quinary-color);
+}
+
+.facts-img {
+    float: center;
+    width: auto;
+    height: auto;
+    z-index: 0;
+}
+
+.random-cat-facts p {
+    position: relative;
+}
+
+#myBtn {
+    border: 4px var(--quaternary-color);
+    background-color: var(--primary-color);
+    color: var(--secondary-color);
+    position: relative;
+    right:-20%;
+}
+
+.resources-img {
+    width: auto;
+    height: auto;   
+}
+
+#additional-resources ul {
+    color: var(--secondary-color);
+}
+
+footer{
+    background-color: var(--quinary-color);
+    color: var(--primary-color);
 }
