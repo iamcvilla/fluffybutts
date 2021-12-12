@@ -91,20 +91,6 @@ function saveSelectedPet(){
     $('#myModal_product').modal('show');
     console.log(petID)
 }
-
-var catSearchHandler = function(event) {
-    event.preventDefault();
-    
-    // search and manipulate dom off search
-    var searchedPostcodeEl = document.getElementById("postcode");
-    var searchedPostcode = searchedPostcodeEl.value.trim();
-    postcode = searchedPostcode;
-    
-    console.log("event", event);
-
-    
-};
-     
 getAccessToken();
 function catFacts() {
     var factsListEl = document.getElementById("cat-facts");

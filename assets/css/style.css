@@ -68,7 +68,8 @@
 
 .facts-img {
     float: center;
-    width: 50%;
+    width: auto;
+    height: auto;
     z-index: 0;
 }
 
@@ -85,13 +86,11 @@
 }
 
 .resources-img {
-    display: flex;
-    position: static;
-    width: 1400px;
-    height: 650px;   
+    width: auto;
+    height: auto;   
 }
 
-.addtional-resources ul {
+#additional-resources ul {
     color: var(--secondary-color);
 }
 
