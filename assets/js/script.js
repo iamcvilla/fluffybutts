@@ -100,9 +100,43 @@ var catSearchHandler = function(event) {
     var searchedPostcode = searchedPostcodeEl.value.trim();
     postcode = searchedPostcode;
     
-    console.log("event", event);
+    console.log("postcode", postcode);
+    fetch('https://api.petfinder.com/v2/animals?type=Cat&limit=6&location='+postcode, {
+        headers: {
+            Authorization: 'Bearer ' + accessToken
+        }
+    }).then(function (response) {
+        return response.json()
+    }).then(function (data) {
+    console.log(data)
+        var localCats = document.getElementById("localCats")
+        localCats.innerHTML=""
+        for (var i = 0; i < data.animals.length; i++) {
+            var localCat = document.createElement("li");
+            var name = document.createElement("p");
+            var image = document.createElement("img");
+            var link = document.createElement("a");
+            var animal = data.animals[i]
+            name.textContent = animal.name
+            image.src = animal.photos[0].medium
+            link.href = animal.url
+            link.target = "_blank"
 
-    
+
+        link.appendChild(image)
+        link.appendChild(name)
+        localCat.appendChild(link)
+        localCats.appendChild(localCat)
+
+        }
+
+
+
+
+
+
+
+    }) 
 };
      
 getAccessToken();
