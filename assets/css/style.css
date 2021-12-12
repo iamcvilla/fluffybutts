@@ -52,13 +52,20 @@
 
 .btn-view {
     background-color: var(--primary-color);
-    color: var(--tertiary-color);
+    color: var(--quinary-color);
     margin: 10px 5px;
 }
 
 .btn-save{
     background-color: var(--tertiary-color);
-    color: var(--primary-color);
+    color: var(--quinary-color);
+    margin: 10px 5px;
+}
+
+#search-pet-btn {
+    background-color: var(--primary-color);
+    color: var(--quinary-color);
+    font-weight: bold;
     margin: 10px 5px;
 }
 
@@ -81,6 +88,7 @@
     border: 4px var(--quaternary-color);
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    font-weight: bold;
     position: relative;
     right:-20%;
 }
