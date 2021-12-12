@@ -1,14 +1,13 @@
-
+// Main Variables
 var searchFormEl = document.getElementById("search-form");
-// console.log("searchFormEl", searchFormEl)
 var postCodeEl = document.getElementById("postcode");
-// console.log("postCodeEl", postCodeEl)
 var searchBtn = document.getElementById("search-pet-btn");
 var postcode = "";
 var myBtn = document.getElementById("myBtn");
-var savedpets =
-    JSON.parse(window.localStorage.getItem("savedpets")) || [];
+var savedpets = JSON.parse(window.localStorage.getItem("savedpets")) || [];
 var accessToken = '';
+
+// Retriving Api Key and Secret
 function getAccessToken() {
     var apiKey = "3Wnc44BRP16qJhv80lVv1yI8VZZLbe2B0udJQtJIw9UUBS3UI3";
     var apiSecret = "NsSeJWrTc9EIPcPVtJORv2Mb0P5WYRBZDn89Pt7g";
@@ -34,6 +33,8 @@ function getAccessToken() {
             }
         }).then(function (response) {
             return response.json()
+
+        // Featured Pets List and Buttons    
         }).then(function (data) {
             var petBox = document.querySelector(".pet-box")
             console.log("data", data)
@@ -71,11 +72,13 @@ function getAccessToken() {
         })
     });
 };
+
+// View Pet Function
 function viewSelectedPet() {
     var petID = this.value
     console.log(petID)
-    //creat new modal append the information 
 }
+// Save Pet Function and Modal
 function saveSelectedPet() {
     var petID = this.value
     console.log(petID)
@@ -91,11 +94,11 @@ function saveSelectedPet() {
     $('#myModal_product').modal('show');
     console.log(petID)
 }
-
+// Pet Search Function, Input, and Button
 var catSearchHandler = function (event) {
     event.preventDefault();
 
-    // search and manipulate dom off search
+    
     var searchedPostcodeEl = document.getElementById("postcode");
     var searchedPostcode = searchedPostcodeEl.value.trim();
     postcode = searchedPostcode;
@@ -131,7 +134,10 @@ var catSearchHandler = function (event) {
     })
 };
 
+// Calling getAccessToken
 getAccessToken();
+
+// Cat Facts Function and Button
 function catFacts() {
     var factsListEl = document.getElementById("cat-facts");
     factsListEl.innerHTML = "";
@@ -148,5 +154,7 @@ function catFacts() {
             factsListEl.appendChild(factListItem);
         });
 }
+
+//Event Listeners for Pet Search and Cat Facts buttons
 searchFormEl.addEventListener("submit", catSearchHandler);
 myBtn.addEventListener("click", catFacts)
