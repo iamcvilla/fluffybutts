@@ -6,6 +6,7 @@
     --quinary-color: #000000;
 }
 
+/* Header Style Start */
 #carousel-image {
    height: 1000px; 
 }
@@ -28,6 +29,7 @@
     color: var(--primary-color);
 }
 
+/* Base Body Style Start */
 .body-sections h3 {
     font-size: 60px;
     color: var(--primary-color);
@@ -44,6 +46,7 @@
     background-color: var(--quaternary-color);
 }
 
+/* Featured Pets and Search Tool Style Start */
 .pets-img {
     float: right;
     height: 650px;
@@ -52,16 +55,24 @@
 
 .btn-view {
     background-color: var(--primary-color);
-    color: var(--tertiary-color);
+    color: var(--quinary-color);
     margin: 10px 5px;
 }
 
 .btn-save{
     background-color: var(--tertiary-color);
-    color: var(--primary-color);
+    color: var(--quinary-color);
     margin: 10px 5px;
 }
 
+#search-pet-btn {
+    background-color: var(--primary-color);
+    color: var(--quinary-color);
+    font-weight: bold;
+    margin: 10px 5px;
+}
+
+/* Random Cat Facts Style Start */
 .random-cat-facts {
     background-color: var(--quinary-color);
 }
@@ -81,10 +92,12 @@
     border: 4px var(--quaternary-color);
     background-color: var(--primary-color);
     color: var(--secondary-color);
+    font-weight: bold;
     position: relative;
     right:-20%;
 }
 
+/* Resources Style Start */
 .resources-img {
     width: auto;
     height: auto;   
@@ -94,6 +107,7 @@
     color: var(--secondary-color);
 }
 
+/* Footer Style Start */
 footer{
     background-color: var(--quinary-color);
     color: var(--primary-color);
