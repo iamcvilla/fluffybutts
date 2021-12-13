@@ -1,14 +1,6 @@
-<<<<<<< HEAD
-
-var searchFormEl = document.getElementById("search-form");
-console.log("searchFormEl", searchFormEl)
-var postCodeEl = document.getElementById("postcode");
-console.log("postCodeEl", postCodeEl)
-=======
 // Main Variables
 var searchFormEl = document.getElementById("search-form");
 var postCodeEl = document.getElementById("postcode");
->>>>>>> develop
 var searchBtn = document.getElementById("search-pet-btn");
 var postcode = "";
 var myBtn = document.getElementById("myBtn");
@@ -47,35 +39,20 @@ function getAccessToken() {
             var petBox = document.querySelector(".pet-box")
             console.log("data", data)
             var animals = data.animals;
-<<<<<<< HEAD
-        
-=======
-
->>>>>>> develop
             for (var i = 0; i < animals.length; i++) {
                 var petLi = document.createElement("li");
                 var viewButton = document.createElement("a")
                 viewButton.textContent = "view";
-<<<<<<< HEAD
-                viewButton.classList.add ("btn", "btn-primary","btn-lg")
-                viewButton.classList.add ("btn", "btn-info","btn-lg", "btn-view")
-=======
                 viewButton.classList.add("btn", "btn-primary", "btn-lg")
                 viewButton.classList.add("btn", "btn-info", "btn-lg", "btn-view")
->>>>>>> develop
                 viewButton.target = "_blank"
                 viewButton.href = animals[i].url
                 viewButton.setAttribute("value", animals[i].url)
                 viewButton.onclick = viewSelectedPet;
                 var saveButton = document.createElement("button")
                 saveButton.textContent = "save";
-<<<<<<< HEAD
-                saveButton.classList.add ("btn", "btn-primary","btn-lg")
-                saveButton.classList.add ("btn", "btn-info","btn-lg", "btn-save")
-=======
                 saveButton.classList.add("btn", "btn-primary", "btn-lg")
                 saveButton.classList.add("btn", "btn-info", "btn-lg", "btn-save")
->>>>>>> develop
                 saveButton.setAttribute("value", animals[i].id)
                 saveButton.setAttribute("petname", animals[i].name)
                 saveButton.onclick = saveSelectedPet;
@@ -107,19 +84,11 @@ function saveSelectedPet() {
     savedpets =
         JSON.parse(window.localStorage.getItem("savedpets")) || [];
     var newPet = {
-<<<<<<< HEAD
-       name: this.petname,
-        id: petID
-    }
-    console.log(this.petname);
-    savedpets.push (newPet);
-=======
         name: this.petname,
         id: petID
     }
     console.log(this.petname);
     savedpets.push(newPet);
->>>>>>> develop
     window.localStorage.setItem("savedpets", JSON.stringify(savedpets));
     $('#myModal_product').modal('show');
     console.log(petID)
@@ -133,22 +102,6 @@ var catSearchHandler = function (event) {
     var searchedPostcode = searchedPostcodeEl.value.trim();
     postcode = searchedPostcode;
 
-<<<<<<< HEAD
-var catSearchHandler = function(event) {
-    event.preventDefault();
-    
-    // search and manipulate dom off search
-    var searchedPostcodeEl = document.getElementById("postcode");
-    var searchedPostcode = searchedPostcodeEl.value.trim();
-    postcode = searchedPostcode;
-    
-    console.log("event", event);
-
-    
-};
-     
-getAccessToken();
-=======
     console.log("postcode", postcode);
     fetch('https://api.petfinder.com/v2/animals?type=Cat&limit=6&location=' + postcode, {
         headers: {
@@ -184,7 +137,6 @@ getAccessToken();
 getAccessToken();
 
 // Cat Facts Function and Button
->>>>>>> develop
 function catFacts() {
     var factsListEl = document.getElementById("cat-facts");
     factsListEl.innerHTML = "";
@@ -194,21 +146,14 @@ function catFacts() {
         }).then(function (data) {
             console.log("data", data);
             for (var i = 0; i < data.length; i++) {
-<<<<<<< HEAD
-             }
-=======
             }
->>>>>>> develop
             var index = Math.floor(Math.random() * data.length)
             var factListItem = document.createElement("p");
             factListItem.innerText = data[index].text;
             factsListEl.appendChild(factListItem);
         });
 }
-<<<<<<< HEAD
-=======
 
 //Event Listeners for Pet Search and Cat Facts buttons
->>>>>>> develop
 searchFormEl.addEventListener("submit", catSearchHandler);
 myBtn.addEventListener("click", catFacts)

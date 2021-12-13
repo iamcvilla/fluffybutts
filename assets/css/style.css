@@ -91,7 +91,7 @@
 #myBtn {
     border: 4px var(--quaternary-color);
     background-color: var(--primary-color);
-    color: var(--secondary-color);
+    color: var(--quinary-color);
     font-weight: bold;
     position: relative;
     right:-20%;
